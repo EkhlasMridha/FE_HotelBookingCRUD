@@ -5,6 +5,9 @@ import { SharedMaterialModule } from '@materials/shared-material.module';
 import { FormsMaterialModule } from '@materials/forms-material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { PageWrapperModule } from '../shared-modules/page-wrapper/page-wrapper.module';
+import { MatRadioModule } from "@angular/material/radio";
+import { AddguestComponent } from './modal/addguest/addguest.component';
+import { ModalWrapperModule } from '../shared-modules/modal-wrapper/modal-wrapper.module';
 
 const routes: Routes = [
   {
@@ -15,14 +18,17 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    BookingComponent
+    BookingComponent,
+    AddguestComponent
   ],
   imports: [
     CommonModule,
     SharedMaterialModule,
     FormsMaterialModule,
     RouterModule.forChild(routes),
-    PageWrapperModule
+    PageWrapperModule,
+    ModalWrapperModule,
+    MatRadioModule
   ]
 })
 export class AppBookingModule { }

@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,8 @@ import { MatTableModule } from "@angular/material/table";
     FlexLayoutModule,
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +29,8 @@ import { MatTableModule } from "@angular/material/table";
     FlexLayoutModule,
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
 })
 export class SharedMaterialModule {}

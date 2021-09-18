@@ -1,0 +1,27 @@
+<modal-wrapper>
+    <div headerText class="header-title">
+        Add Guest
+    </div>
+    <div modalBody>
+        <form [formGroup]="guestForm" fxLayout="column" id="guestForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" type="text">
+            </mat-form-field>
+            <div class="full-width" fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Age</mat-label>
+                    <input matInput formControlName="age" type="number">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput formControlName="contactNumber" type="tel">
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div secondaryContent>
+        <button mat-stroked-button color="primary" type="button" (click)="close()">Cancel</button>
+    </div>
+    <button primaryButton mat-raised-button color="primary" type="submit" form="guestForm">Save</button>
+</modal-wrapper>

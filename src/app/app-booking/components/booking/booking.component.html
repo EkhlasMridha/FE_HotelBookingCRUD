@@ -1,6 +1,26 @@
 <page-wrapper>
     <div pageTitle>Mange Booking</div>
     <div body>
-        
+        <form fxLayout="column">
+            <div fxlayout="row" fxLayoutGap="10px">
+                <mat-form-field>
+                    <mat-label>Select Guest</mat-label>
+                    <mat-select required>
+                        <mat-option *ngFor="let guest of guestList" [value]="guest">
+                            {{guest.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="button" (click)="addGuestModal()">Add guest</button>
+            </div>
+            <mat-form-field>
+                <mat-label>Select Room</mat-label>
+                <mat-select required>
+                    <mat-option *ngFor="let room of roomList | async" [value]="room">
+                        {{room.roomNumber}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
     </div>
 </page-wrapper>
