@@ -1,0 +1,39 @@
+@use '~@angular/material' as mat;
+@import "~@angular/material/theming";
+@import "theme_pallets.scss";
+
+@include mat.core();
+
+$mat-theme-primary: mat.define-palette($mat-arc-primary, 400);
+$mat-theme-accent: mat.define-palette($mat-arc-accent);
+$mat-theme-warn: mat.define-palette($mat-arc-warn);
+
+$custom-theme: mat.define-light-theme(
+  $mat-theme-primary,
+  $mat-theme-accent,
+  $mat-theme-warn
+);
+
+@include mat.all-component-themes($custom-theme);
+
+/* theme color pallet classes */
+
+$primary-color: map-get($custom-theme, primary);
+
+.primary-background {
+  background-color: mat.get-color-from-palette($primary-color, default);
+}
+
+.primary-color {
+  color: mat.get-color-from-palette($primary-color, default);
+}
+
+.primary-background-override {
+  background-color: mat.get-color-from-palette($primary-color, default) !important;
+}
+
+.color-white-override{
+  color: white !important;
+}
+
+/* ========================== */

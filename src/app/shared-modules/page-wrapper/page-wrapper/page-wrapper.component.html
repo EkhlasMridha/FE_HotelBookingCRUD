@@ -1,0 +1,19 @@
+<div class="container" fxLayout="column">
+    <div class="header-content" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row">
+            <div class="page-header-title primary-color">
+                <ng-content select=[pageTitle]></ng-content>
+            </div>
+            <ng-content select=[titleContent]></ng-content>
+        </div>
+        <div fxLayout="row" fxLayoutGap="10px">
+            <ng-content select=[actionPanel]></ng-content>
+        </div>
+    </div>
+
+    <div class="horizontal-line primary-color"></div>
+
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <ng-content select=[body]></ng-content>
+    </div>
+</div>

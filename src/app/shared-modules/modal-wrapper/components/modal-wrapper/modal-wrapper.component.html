@@ -1,0 +1,13 @@
+<div fxLayout="column">
+    <div class="modal-header {{background}}">
+        <ng-content select=[headerText]></ng-content>
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px" class="modal-body">
+        <ng-content select=[modalBody]></ng-content>
+        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px">
+            <ng-content select=[secondaryContent]></ng-content>
+
+            <ng-content select=[primaryButton]></ng-content>
+        </div>
+    </div>
+</div>

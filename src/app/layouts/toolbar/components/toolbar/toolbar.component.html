@@ -1,0 +1,14 @@
+<mat-toolbar #matToolbar color="primary" fxLayout="row">
+    <mat-toolbar-row>
+        <div *ngIf="showMenuButton" fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button (click)="openDrawer($event)">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Hotel Booking</span>
+        </div>
+        <div class="spacer"></div>
+        <!-- <div class="nav-items">
+            
+        </div> -->
+    </mat-toolbar-row>
+</mat-toolbar>
