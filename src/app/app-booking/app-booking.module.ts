@@ -8,11 +8,16 @@ import { PageWrapperModule } from '../shared-modules/page-wrapper/page-wrapper.m
 import { MatRadioModule } from "@angular/material/radio";
 import { AddguestComponent } from './modal/addguest/addguest.component';
 import { ModalWrapperModule } from '../shared-modules/modal-wrapper/modal-wrapper.module';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 const routes: Routes = [
   {
     path: "",
-    component:BookingComponent
+    component: BookingComponent,
+    data: {
+      breadCrumb:""
+    }
   }
 ]
 
@@ -28,7 +33,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     PageWrapperModule,
     ModalWrapperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class AppBookingModule { }

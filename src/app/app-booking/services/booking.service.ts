@@ -16,4 +16,8 @@ export class BookingService {
   addGuest(payload:any) {
     return this.http.post("room/guest", payload);
   }
+
+  createBooking(payload: any) {
+    return this.http.post("booking", payload);
+  }
 }

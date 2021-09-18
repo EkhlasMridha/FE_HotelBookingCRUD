@@ -12,7 +12,7 @@ export const NavConfigs: NavigationModel[] = [
         matIcon: "home"
     },
     {
-        name: "Manage Booking",
+        name: "Create Booking",
         route: "booking",
         matIcon:"ballot"
     },

@@ -10,7 +10,7 @@ import { RoomService } from '../../services/room.service';
 })
 export class RoomlistComponent implements OnInit {
   dataSource: MatTableDataSource<RoomModel>;
-  displayedColumns:string[] = ["roomNumber","capacity","rent"]
+  displayedColumns:string[] = ["roomNumber","capacity","rent","onGoingBooking","closedBooking"]
   constructor(private roomService:RoomService) { }
 
   ngOnInit(): void {
@@ -19,6 +19,7 @@ export class RoomlistComponent implements OnInit {
 
   getRoomDate() {
     this.roomService.getAllroom().subscribe(res => {
+      console.log(res);
       this.dataSource = new MatTableDataSource(res);
     })
   }

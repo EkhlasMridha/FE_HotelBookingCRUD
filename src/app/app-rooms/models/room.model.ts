@@ -3,4 +3,6 @@ export interface RoomModel{
     roomNumber: string;
     capacity: number;
     rent: number;
+    onGoingBooking: number;
+    closedBooking: number;
 }

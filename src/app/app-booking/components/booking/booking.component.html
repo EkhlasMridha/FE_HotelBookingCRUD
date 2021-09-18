@@ -1,26 +1,47 @@
 <page-wrapper>
-    <div pageTitle>Mange Booking</div>
+    <div pageTitle>Create Booking</div>
     <div body>
-        <form fxLayout="column">
+        <form [formGroup]="bookingForm"  (ngSubmit)="onSubmit()" fxLayout="column">
             <div fxlayout="row" fxLayoutGap="10px">
                 <mat-form-field>
                     <mat-label>Select Guest</mat-label>
-                    <mat-select required>
-                        <mat-option *ngFor="let guest of guestList" [value]="guest">
+                    <input matInput readonly formControlName="bookedBy" type="text" name="" id="">
+                    <!-- <mat-select formControlName="bookedBy" required>
+                        <mat-option *ngFor="let guest of guestList" [value]="guest.id">
                             {{guest.name}}
                         </mat-option>
-                    </mat-select>
+                    </mat-select> -->
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="button" (click)="addGuestModal()">Add guest</button>
             </div>
             <mat-form-field>
                 <mat-label>Select Room</mat-label>
-                <mat-select required>
-                    <mat-option *ngFor="let room of roomList | async" [value]="room">
+                <mat-select formControlName="roomId" required>
+                    <mat-option *ngFor="let room of roomList | async" [value]="room.id">
                         {{room.roomNumber}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>From</mat-label>
+                <input matInput type="text" name="" id="">
+            </mat-form-field> -->
+            <mat-form-field appearance="outline">
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate formControlName="bookedFrom" placeholder="Start date">
+                    <input matEndDate formControlName="leaveAt" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Comments</mat-label>
+                <input matInput formControlName="comments" type="text" name="" id="">
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" type="submit">Save</button>
+            </div>
         </form>
     </div>
 </page-wrapper>

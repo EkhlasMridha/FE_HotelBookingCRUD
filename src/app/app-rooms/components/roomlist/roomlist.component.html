@@ -17,6 +17,17 @@
       <mat-header-cell *matHeaderCellDef> Rent </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.rent}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="onGoingBooking">
+        <mat-header-cell *matHeaderCellDef> Existing Booking </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.onGoingBooking}} </mat-cell>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="closedBooking">
+        <mat-header-cell *matHeaderCellDef> Closed Booking </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.closedBooking}} </mat-cell>
+      </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
