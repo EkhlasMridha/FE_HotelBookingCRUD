@@ -7,6 +7,7 @@ import { PageWrapperModule } from '../shared-modules/page-wrapper/page-wrapper.m
 import { RouterModule, Routes } from '@angular/router';
 import { AddRoomComponent } from './modal/add-room/add-room.component';
 import { ModalWrapperModule } from '../shared-modules/modal-wrapper/modal-wrapper.module';
+import { RoomlistComponent } from './components/roomlist/roomlist.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RoomComponent,
-    AddRoomComponent
+    AddRoomComponent,
+    RoomlistComponent
   ],
   imports: [
     CommonModule,

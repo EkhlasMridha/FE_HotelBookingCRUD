@@ -3,7 +3,19 @@
       Settings
     </div>
     <div body>
-      nothing setting
+      <form [formGroup]="settingForm" (ngSubmit)="onSubmit()" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Discount(%)</mat-label>
+          <input matInput formControlName="discount" type="number" max="100" min="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Tax(%)</mat-label>
+          <input matInput formControlName="taxPercentage" type="number" max="100" min="0">
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+      </form>
     </div>
   </page-wrapper>
   

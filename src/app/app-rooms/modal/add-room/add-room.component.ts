@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { RoomService } from '../../services/room.service';
 
 @Component({
   selector: 'app-add-room',
@@ -11,7 +12,8 @@ export class AddRoomComponent implements OnInit {
   roomForm: FormGroup;
   constructor (
     private dialogRef: MatDialogRef<AddRoomComponent>,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private roomService:RoomService) {
     this.roomForm = this.createForm()
      }
 
@@ -26,8 +28,8 @@ export class AddRoomComponent implements OnInit {
     })
   }
 
-  close() {
-    this.dialogRef.close();
+  close(result:any=null) {
+    this.dialogRef.close(result);
   }
 
   onSubmit() {
@@ -38,5 +40,9 @@ export class AddRoomComponent implements OnInit {
     const result = Object.assign({}, this.roomForm.value);
 
     console.log(result);
+    this.roomService.createRoom(result).subscribe(res => {
+      console.log(res);
+      this.close(res);
+    })
   }
 }
