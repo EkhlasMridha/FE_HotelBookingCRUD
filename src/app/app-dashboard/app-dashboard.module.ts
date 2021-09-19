@@ -6,6 +6,7 @@ import { SharedMaterialModule } from '@materials/shared-material.module';
 import { ConfirmationStatusModalModule } from '../shared-modules/confirmation-status-modal/confirmation-status-modal.module';
 import { RootLineToasterModule } from '../shared-modules/root-line-toaster/root-line-toaster.module';
 import { PageWrapperModule } from '../shared-modules/page-wrapper/page-wrapper.module';
+import { BookingsComponent } from './components/bookings/bookings.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, BookingsComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,
