@@ -4,7 +4,6 @@ import { RootRoutingModule } from '../root-routing/RT-route-system/root-routing.
 import { AppComponent } from './components/root-component/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DomainService } from '@core/services/domain.service';
-import { AppLoaderModule } from '../app-tools/app-loader/app-loader.module';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { interceptorProvider } from "@http-interceptors/interceptor.provider";
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -30,7 +29,6 @@ export function initializer(domainService: DomainService) {
     BrowserModule,
     RootRoutingModule,
     BrowserAnimationsModule,
-    AppLoaderModule,
     CoreModule,
     ToastrModule.forRoot(),
   ],
