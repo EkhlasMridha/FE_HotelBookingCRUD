@@ -16,4 +16,8 @@ export class BookingdataService {
   createBooking(payload: any) {
     return this.http.post("booking", payload);
   }
+
+  deleteBooking(id: number) {
+    return this.http.delete(`booking/${id}`);
+  }
 }
