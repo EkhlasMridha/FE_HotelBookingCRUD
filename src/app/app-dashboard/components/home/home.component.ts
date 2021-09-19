@@ -51,4 +51,6 @@ export class HomeComponent implements OnInit {
     // });
     this.toaster.openSnackbar(this.ref);
   }
+
+  createBooking(){}
 }

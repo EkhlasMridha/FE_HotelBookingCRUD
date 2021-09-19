@@ -16,4 +16,12 @@ export class RoomService {
   getAllroom() {
     return this.http.get<RoomModel[]>("room");
   }
+
+  deleteRoom(id: number) {
+    return this.http.delete(`room/${id}`);
+  }
+
+  editRoom(id: number, payload: any) {
+    return this.http.put(`room/${id}`, payload);
+  }
 }

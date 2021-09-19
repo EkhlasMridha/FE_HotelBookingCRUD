@@ -23,6 +23,11 @@
         <mat-cell *matCellDef="let element"> {{element.leaveAt  | date:'dd/MM/yyyy'}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="paidAmount">
+        <mat-header-cell *matHeaderCellDef> Paid amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.paidAmount}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="comments">
         <mat-header-cell *matHeaderCellDef> Comments </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.comments}}</mat-cell>

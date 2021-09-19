@@ -14,14 +14,19 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="button" (click)="addGuestModal()">Add guest</button>
             </div>
-            <mat-form-field>
-                <mat-label>Select Room</mat-label>
-                <mat-select formControlName="roomId" required>
-                    <mat-option *ngFor="let room of roomList | async" [value]="room.id">
-                        {{room.roomNumber}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                <mat-form-field>
+                    <mat-label>Select Room</mat-label>
+                    <mat-select formControlName="roomId" (selectionChange)="onRoomChange($event)" required>
+                        <mat-option *ngFor="let room of roomList | async" [value]="room">
+                            {{room.roomNumber}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    Rent per day: {{rentCount}}
+                </div>
+            </div>
             <!-- <mat-form-field appearance="outline">
                 <mat-label>From</mat-label>
                 <input matInput type="text" name="" id="">
@@ -33,6 +38,11 @@
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Paid amount</mat-label>
+                <input matInput formControlName="paidAmount" type="number" name="" id="" min="0">
             </mat-form-field>
             
             <mat-form-field appearance="outline">

@@ -10,7 +10,7 @@ import { BookingdataService } from '../../services/bookingdata.service';
 })
 export class BookingsComponent implements OnInit {
   dataSource: MatTableDataSource<BookingsModel>;
-  displayedColumns:string[]=["guestName","roomNumber","bookFrom","leaveAt","comments"]
+  displayedColumns:string[]=["guestName","roomNumber","bookFrom","leaveAt","paidAmount","comments"]
   constructor(private bookingDataService:BookingdataService) { }
 
   ngOnInit(): void {

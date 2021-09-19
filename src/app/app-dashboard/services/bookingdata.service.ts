@@ -12,4 +12,8 @@ export class BookingdataService {
   getBookings() {
     return this.http.get<BookingsModel[]>("booking");
   }
+
+  createBooking(payload: any) {
+    return this.http.post("booking", payload);
+  }
 }

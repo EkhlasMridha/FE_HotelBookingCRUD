@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RoomModel } from 'src/app/app-rooms/models/room.model';
+import { SettingModel } from 'src/app/app-settings/models/setting.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class BookingService {
 
   createBooking(payload: any) {
     return this.http.post("booking", payload);
+  }
+
+  getSettings() {
+    return this.http.get<SettingModel>("setting");
   }
 }
