@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RoomModel } from 'src/app/app-rooms/models/room.model';
 import { SettingModel } from 'src/app/app-settings/models/setting.model';
+import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
 import { AddguestComponent } from '../../modal/addguest/addguest.component';
 import { BookingService } from '../../services/booking.service';
 
@@ -25,7 +27,9 @@ export class BookingComponent implements OnInit {
   bookingForm:FormGroup
   constructor (private bookingService: BookingService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private modalService: ConfirmationStatusService,
+    private router:Router) {
     this.bookingForm = this.createForm();
   }
 
@@ -62,18 +66,35 @@ export class BookingComponent implements OnInit {
     })
   }
 
+  primaryButtonModal() {
+    
+  }
+
   onSubmit() {
     if (!this.bookingForm.valid) {
       return;
     }
 
     const result = Object.assign({}, this.bookingForm.value);
-    result.bookedBy = this.bookedByGuest.id;
-    result.roomId = result.roomId.id;
     console.log(result);
+    result.bookedBy = this.bookedByGuest.id;
+    console.log(this.bookedByGuest)
+    result.roomId = result.roomId.id;
+    
 
+    let loaderRef = this.modalService.openConfirmationModal({
+      isLoader: true,
+      disableClose:true,
+      loaderText:"Creating booking"
+    })
     this.bookingService.createBooking(result).subscribe(res => {
       console.log(res);
+      loaderRef.close();
+      this.modalService.openConfirmationModal({
+        headerText: "Booking Created Successfully!",
+        primaryButtonName: "Ok",
+        primaryEvent:this.primaryButtonModal
+      })
     })
   }
 

@@ -10,6 +10,7 @@ import { AddguestComponent } from './modal/addguest/addguest.component';
 import { ModalWrapperModule } from '../shared-modules/modal-wrapper/modal-wrapper.module';
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { ConfirmationStatusModalModule } from '../shared-modules/confirmation-status-modal/confirmation-status-modal.module';
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
     CommonModule,
     SharedMaterialModule,
     FormsMaterialModule,
+    ConfirmationStatusModalModule.forChild({
+      modalWidth: '500px',
+    }),
     RouterModule.forChild(routes),
     PageWrapperModule,
     ModalWrapperModule,

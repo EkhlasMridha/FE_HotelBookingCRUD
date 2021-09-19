@@ -3,7 +3,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="roomNumber">
       <mat-header-cell *matHeaderCellDef> Room Number </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.roomNumber}} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewDetails(element)" class="cursor-pointer"> {{element.roomNumber}} </mat-cell>
     </ng-container>
   
     <!-- Weight Column -->

@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddRoomComponent } from './modal/add-room/add-room.component';
 import { ModalWrapperModule } from '../shared-modules/modal-wrapper/modal-wrapper.module';
 import { RoomlistComponent } from './components/roomlist/roomlist.component';
+import { RoomBookingDetailComponent } from './modal/room-booking-detail/room-booking-detail.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
   declarations: [
     RoomComponent,
     AddRoomComponent,
-    RoomlistComponent
+    RoomlistComponent,
+    RoomBookingDetailComponent
   ],
   imports: [
     CommonModule,

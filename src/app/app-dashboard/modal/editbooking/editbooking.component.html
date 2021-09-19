@@ -1,0 +1,44 @@
+<modal-wrapper>
+    <div headerText class="header-title">
+        Edit Booking
+    </div>
+    <div modalBody >
+        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" fxLayout="column" id="bookingEdit">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                <mat-form-field>
+                    <mat-label>Select Room</mat-label>
+                    <mat-select formControlName="roomId" (selectionChange)="onRoomChange($event)" required>
+                        <mat-option *ngFor="let room of roomList" [value]="room">
+                            {{room.roomNumber}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    Rent per day: {{rentCount}}
+                </div>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate formControlName="bookedFrom" placeholder="Start date">
+                    <input matEndDate formControlName="leaveAt" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Paid amount</mat-label>
+                <input matInput formControlName="paidAmount" type="number" name="" id="" min="0">
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Comments</mat-label>
+                <input matInput formControlName="comments" type="text" name="" id="">
+            </mat-form-field>
+        </form>
+    </div>
+    <div secondaryContent>
+        <button mat-stroked-button color="primary" type="button" (click)="close()">Cancel</button>
+    </div>
+    <button primaryButton mat-raised-button color="primary" type="submit" form="bookingEdit">Save</button>
+</modal-wrapper>

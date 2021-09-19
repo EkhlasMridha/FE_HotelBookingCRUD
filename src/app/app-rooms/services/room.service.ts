@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RoomDetailModel } from '../models/room-detail.model';
 import { RoomModel } from '../models/room.model';
 
 @Injectable({
@@ -23,5 +24,9 @@ export class RoomService {
 
   editRoom(id: number, payload: any) {
     return this.http.put(`room/${id}`, payload);
+  }
+
+  getRoomBookingDetails(roomId:number) {
+    return this.http.get<RoomDetailModel[]>(`room/roominfo/${roomId}`);
   }
 }

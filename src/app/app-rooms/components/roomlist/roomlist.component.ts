@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { BookingsModel } from 'src/app/app-dashboard/models/bookings.model';
 import { AddRoomComponent } from '../../modal/add-room/add-room.component';
+import { RoomBookingDetailComponent } from '../../modal/room-booking-detail/room-booking-detail.component';
 import { RoomModel } from '../../models/room.model';
 import { RoomService } from '../../services/room.service';
 
@@ -34,7 +35,7 @@ export class RoomlistComponent implements OnInit {
     this.roomService.deleteRoom(room.id).subscribe(res => {
       console.log("Deleted");
       let index = this.data.indexOf(room);
-      this.data = this.data.splice(index, 1);
+      this.data.splice(index, 1);
       this.dataSource.data = this.data;
     })
   }
@@ -43,6 +44,14 @@ export class RoomlistComponent implements OnInit {
     console.log(room);
     this.dialog.open(AddRoomComponent, {
       data: room,
+      panelClass:"nopadding-modal"
+    })
+  }
+
+  viewDetails(room:RoomModel) {
+    this.dialog.open(RoomBookingDetailComponent, {
+      data: room,
+      width:"550px",
       panelClass:"nopadding-modal"
     })
   }

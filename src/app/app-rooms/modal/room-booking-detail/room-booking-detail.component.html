@@ -1,0 +1,37 @@
+<modal-wrapper>
+    <div headerText class="header-title">
+        Room Booking Info
+    </div>
+    <div modalBody>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+            <!-- Name Column -->
+            <ng-container matColumnDef="bookedFrom">
+              <mat-header-cell *matHeaderCellDef> Booked From </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.bookedFrom | date:'dd/MM/yyyy'}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="leaveAt">
+              <mat-header-cell *matHeaderCellDef> Checked Out At </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.leaveAt | date:'dd/MM/yyyy'}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="paidAmount">
+              <mat-header-cell *matHeaderCellDef> Amount Paid </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.paidAmount}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="bookedBy">
+                <mat-header-cell *matHeaderCellDef> Booked By </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bookedBy}} </mat-cell>
+              </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    </div>
+    <button primaryButton mat-raised-button color="primary" (click)="close()">Ok</button>
+</modal-wrapper>
